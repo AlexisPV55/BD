@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>NIKE HOMBRE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> 
+</head>
+<body>
+    <h1 class="text-center">👕 HOMBRE</h1>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mujer.html">MUJER</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="rebajas.html">REBAJAS</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <img class="img-fluid" src="sudadera.jpg" alt="Sudadera" />
+                <p>Precio: $750.00</p>
+            </div>
+            <div class="col-sm-4 text-center">
+                <img class="img-fluid" src="playera.jpg" alt="Playera" />
+                <p>Precio: $280.00</p>
+            </div>
+            <div class="col-sm-4 text-center">
+                <img class="img-fluid" src="pans.jpeg" alt="Pants" />
+                <p>Precio: $550.00</p>
+            </div>
+            <div class="col-sm-4 text-center">
+                <img class="img-fluid" src="roja.jpg" alt="Chamarra" />
+                <p>Precio: $880.00 Rebaja del 15%</p>
+            </div>
+            <div class="col-sm-4 text-center">
+                <img class="img-fluid" src="chamcam.jpg" alt="Chamcam" />
+                <p>Precio: $1,100 Rebaja del 18%</p>
+            </div>
+        </div>
+
+        <!-- Div de fondo diferente para el formulario -->
+        <div class="mt-4 d-flex justify-content-center">
+            <div class="col-md-6" style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 20px; border-radius: 5px;">
+                <h2 class="text-center">Registro de Compra</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre de la prenda</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la prenda">
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio</label>
+                        <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio">
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad">
+                    </div>
+                    <div class="form-group">
+                        <label for="total">Total</label>
+                        <input type="text" class="form-control" id="total" name="total" placeholder="Total" readonly>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

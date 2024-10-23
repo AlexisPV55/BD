@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(7.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+.navbar{
+    width: 1300px;
+    height: 75px;
+    margin:auto;
+}
+.logo{
+    color:aqua;
+    font-size: 50px;
+    font-family:fantasy;
+    padding-left: 550px;
+    float:left;
+    padding-top: 10px;
+    margin-top: 5px
+}
+
+
+
+ul li{
+    list-style: none;
+    margin-left: 100px;
+    margin-top: 10px;
+    font-size: 17px;
+}
+ul li a{
+    text-decoration: none;
+    color:aquamarine;
+    font-family:cursive;
+    font-weight:bold;
+    transition: 0.4s ease-in-out;
+}
+.form{
+    width: 250px;
+    height: 380px;
+    background: linear-gradient(to top, rgba(53, 191, 216, 0.8)50%,rgba(53, 193, 216, 0.8)50%);
+    position:relative;
+    top: -15px;
+    left: 1370px;
+    transform: translate(0%,-5%);
+    border-radius: 10px;
+    padding: 25px;
+}
