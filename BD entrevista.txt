@@ -1,0 +1,108 @@
+create database trab;
+ use trab;
+
+CREATE TABLE Articulo (
+    idArticulo INT PRIMARY KEY,
+    descripcion VARCHAR(255),
+    costo DECIMAL(10, 2),
+    unidadVenta INT,
+    unidadCompra INT
+);
+
+-- Tabla UnidadVenta
+CREATE TABLE UnidadVenta (
+    idUnidadVenta INT PRIMARY KEY,
+    descripcion VARCHAR(50)
+);
+
+-- Tabla Venta
+CREATE TABLE Venta (
+    idVenta INT PRIMARY KEY,
+    fechaVenta DATE,
+    usuarioVenta INT,
+    idArticulo INT,
+    cantidad INT,
+    FOREIGN KEY (usuarioVenta) REFERENCES Usuario(idUsuario),
+    FOREIGN KEY (idArticulo) REFERENCES Articulo(idArticulo)
+);
+
+-- Tabla Usuario
+CREATE TABLE Usuario (
+    idUsuario INT PRIMARY KEY,
+    nombre VARCHAR(255),
+    apellido VARCHAR(255),
+    telefono VARCHAR(15)
+);
+
+-- Insertar datos en la tabla Articulo
+INSERT INTO Articulo (idArticulo, descripcion, costo, unidadVenta, unidadCompra) VALUES
+(1, 'Llave metalica', 130, 1, 1),
+(2, 'Varilla', 133, 1, 4),
+(3, 'Arena', 50, 2, 4),
+(4, 'Lavadero', 445, 1, 1),
+(5, 'Grava', 45, 2, 1);
+
+-- Insertar datos en la tabla UnidadVenta
+INSERT INTO UnidadVenta (idUnidadVenta, descripcion) VALUES
+(1, 'Pza'),
+(2, 'Kg'),
+(3, 'Lt'),
+(4, 'Ton');
+
+-- Insertar datos en la tabla Venta
+INSERT INTO Venta (idVenta, fechaVenta, usuarioVenta, idArticulo, cantidad) VALUES
+(1, '2024-09-01', 3, 1, 4),
+(2, '2024-09-01', 4, 1, 6),
+(3, '2024-09-01', 4, 5, 67),
+(4, '2024-09-03', 3, 4, 6),
+(5, '2024-09-03', 3, 3, 9),
+(6, '2024-09-04', 4, 5, 3),
+(7, '2024-09-05', 7, 1, 5),
+(8, '2024-09-06', 6, 4, 6),
+(9, '2024-09-08', 5, 3, 7),
+(10, '2024-09-08', 5, 4, 3);
+
+-- Insertar datos en la tabla Usuario
+INSERT INTO Usuario (idUsuario, nombre, apellido, telefono) VALUES
+(1, 'Antonio', 'Sanchez', '5566778800'),
+(2, 'Cassandra', 'Ramírez', '5566884499'),
+(3, 'Ramiro', 'Jimenez', '5574843487'),
+(4, 'José', 'Perez', '5573894246'),
+(5, 'Renato', 'Bernabe', '5568434788'),
+(6, 'Iván', 'Bernardino', '5522399863'),
+(7, 'Mario', 'Manriquez', '5576732356');
+
+
+///*
+Verifica que los datos fueron insertados correctamente
+SELECT * FROM UnidadVenta;
+SELECT * FROM Usuario;
+
+*///
+
+
+
+SELECT SUM(a.costo * v.cantidad) AS monto_total_vendido
+FROM Venta v
+JOIN Articulo a ON v.idArticulo = a.idArticulo;
+
+
+
+SELECT u.nombre, u.apellido, SUM(a.costo * v.cantidad) AS total_ingresado
+FROM Venta v
+JOIN Articulo a ON v.idArticulo = a.idArticulo
+JOIN Usuario u ON v.usuarioVenta = u.idUsuario
+WHERE v.fechaVenta BETWEEN '2024-09-01' AND '2024-09-30'
+GROUP BY u.nombre, u.apellido
+ORDER BY total_ingresado DESC
+LIMIT 1;
+
+
+SELECT a.descripcion, uv.descripcion AS unidad_venta, SUM(v.cantidad) AS total_vendido
+FROM Venta v
+JOIN Articulo a ON v.idArticulo = a.idArticulo
+JOIN UnidadVenta uv ON a.unidadVenta = uv.idUnidadVenta
+WHERE v.fechaVenta BETWEEN '2024-09-01' AND '2024-09-30'
+GROUP BY a.descripcion, uv.descripcion
+ORDER BY total_vendido DESC
+LIMIT 1;
